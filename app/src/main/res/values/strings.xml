@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">LinlinHan_COMP304_Assignment5</string>
+
+    <string-array name="brands">
+        <item>Honda</item>
+        <item>BMW</item>
+        <item>Benz</item>
+    </string-array>
+
+    <string name="title_activity_maps">Map</string>
+
+    <string-array name="Honda">
+        <item>Roadsport Honda</item>
+        <item>Formula Honda</item>
+        <item>Parkway Honda</item>
+    </string-array>
+
+</resources>
