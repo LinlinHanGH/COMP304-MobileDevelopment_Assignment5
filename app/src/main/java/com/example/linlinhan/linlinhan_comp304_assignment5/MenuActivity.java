@@ -35,25 +35,10 @@ public class MenuActivity extends AppCompatActivity {
                         SharedPreferences myPreference =
                                 getSharedPreferences("Asg5SharedPreferences", 0);
                         SharedPreferences.Editor prefEditor = myPreference.edit();
-                        Intent intent;
-                        switch (position)
-                        {
-                            case 0:
-                                intent = new Intent(MenuActivity.this, ShowroomActivity.class);
-                                prefEditor.putString("selectedBrand", brands[0]);
-                                prefEditor.commit();
-                                startActivity(intent);
-                                break;
-                            case 1:
-
-                                break;
-                            case 2:
-
-                                break;
-
-                            default:
-                                break;
-                        }
+                        Intent intent=new Intent(MenuActivity.this, ShowroomActivity.class);
+                        prefEditor.putString("selectedBrand", brands[position]);
+                        prefEditor.commit();
+                        startActivity(intent);
                     }
                 }
         );

@@ -12,6 +12,7 @@ import android.widget.ListView;
 public class ShowroomActivity extends AppCompatActivity {
     private String _seletedBrand;
     private String[]_showrooms={};
+    private String[]_addresses={};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +31,27 @@ public class ShowroomActivity extends AppCompatActivity {
         switch (_seletedBrand){
             case "Honda":
                 _showrooms=getResources().getStringArray(R.array.Honda);
+                _addresses=getResources().getStringArray(R.array.HondaAddress);
                 break;
-                default:
-                    break;
+            case "Chevrolet":
+                _showrooms=getResources().getStringArray(R.array.Chevrolet);
+                _addresses=getResources().getStringArray(R.array.ChevroletAddress);
+                break;
+            case "Ford":
+                _showrooms=getResources().getStringArray(R.array.Ford);
+                _addresses=getResources().getStringArray(R.array.FordAddress);
+                break;
+            case "Nissan":
+                _showrooms=getResources().getStringArray(R.array.Nissan);
+                _addresses=getResources().getStringArray(R.array.NissanAddress);
+                break;
+            default:
+                break;
         }
-
 
     }
 
     private void initBrandsListView(){
-
-
         //get brands from string array
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,
                 _showrooms);
@@ -55,26 +66,7 @@ public class ShowroomActivity extends AppCompatActivity {
                         SharedPreferences.Editor prefEditor = myPreference.edit();
                         Intent intent=new Intent(ShowroomActivity.this, MapsActivity.class);
                         prefEditor.putString("selectedShowroom", _showrooms[position]);
-
-                        switch (position)
-                        {
-
-                            case 0:
-                                intent = new Intent(ShowroomActivity.this, MapsActivity.class);
-                                prefEditor.putString("selectedShowroom", _showrooms[0]);
-                                prefEditor.commit();
-                                startActivity(intent);
-                                break;
-                            case 1:
-
-                                break;
-                            case 2:
-
-                                break;
-
-                            default:
-                                break;
-                        }
+                        prefEditor.putString("selectedAddress", _addresses[position]);
                     }
                 }
         );
