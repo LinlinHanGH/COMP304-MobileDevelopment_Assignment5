@@ -3,6 +3,7 @@ package com.example.linlinhan.linlinhan_comp304_assignment5;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -27,11 +28,14 @@ public class CustomInfoWindowGoogleMap implements GoogleMap.InfoWindowAdapter {
                 .inflate(R.layout.map_custom_infowindow, null);
 
         TextView txvBrand = view.findViewById(R.id.txvBrand);
-       /* TextView details_tv = view.findViewById(R.id.details);
-        ImageView img = view.findViewById(R.id.pic);*/
+        ImageView img = view.findViewById(R.id.imgvLogo);
 
+        InfoWindowData infoWindowData = (InfoWindowData) marker.getTag();
 
         txvBrand.setText(marker.getTitle());
+        int imageId = context.getResources().getIdentifier(infoWindowData.getImage().toLowerCase(),
+                "drawable", context.getPackageName());
+        img.setImageResource(imageId);
 
 
         return view;

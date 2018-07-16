@@ -79,13 +79,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add a marker in Sydney and move the camera
         LatLng selectedPlace = new LatLng(_latitude, _longitude);
-        //mMap.addMarker(new MarkerOptions().position(selectedPlace).title("Marker of Honda"));
 
-
+        // custom marker
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(selectedPlace).title(_selecctedBrand);
 
         InfoWindowData info = new InfoWindowData();
+        info.setImage("honda");
+
         CustomInfoWindowGoogleMap customInfoWindow = new CustomInfoWindowGoogleMap(this);
         mMap.setInfoWindowAdapter(customInfoWindow);
 
