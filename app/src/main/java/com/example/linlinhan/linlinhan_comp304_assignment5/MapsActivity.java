@@ -6,6 +6,7 @@ import android.location.Geocoder;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,6 +23,7 @@ import java.util.Locale;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private String _selecctedBrand;
     private String _selecctedShowroom;
     private String _selecctedAddress;
     private double _latitude ;
@@ -38,6 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         SharedPreferences myPref = getSharedPreferences("Asg5SharedPreferences", MODE_PRIVATE);
+        _selecctedBrand=myPref.getString("selectedBrand","");
         _selecctedShowroom = myPref.getString("selectedShowroom","");
         _selecctedAddress=myPref.getString("selectedAddress","");
 
@@ -55,12 +58,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.e("GeoAddress", "Failed to get location info", e);
 
         }
-
-
-
-
-
-
 
     }
 
@@ -82,5 +79,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng sydney = new LatLng(_latitude, _longitude);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker of Honda"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }// end of onMapReady
+
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        switch (keyCode)
+        {
+            case KeyEvent.KEYCODE_3:
+                mMap.animateCamera(CameraUpdateFactory.zoomIn());
+                break;
+            case KeyEvent.KEYCODE_1:
+                mMap.animateCamera(CameraUpdateFactory.zoomOut());
+                break;
+        }
+        return super.onKeyDown(keyCode,event);
+
     }
 }
