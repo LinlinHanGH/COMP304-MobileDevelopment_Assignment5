@@ -53,7 +53,9 @@ public class ShowroomActivity extends AppCompatActivity {
                         SharedPreferences myPreference =
                                 getSharedPreferences("Asg5SharedPreferences", 0);
                         SharedPreferences.Editor prefEditor = myPreference.edit();
-                        Intent intent;
+                        Intent intent=new Intent(ShowroomActivity.this, MapsActivity.class);
+                        prefEditor.putString("selectedShowroom", _showrooms[position]);
+
                         switch (position)
                         {
 

@@ -3,8 +3,9 @@
 
     <string-array name="brands">
         <item>Honda</item>
-        <item>BMW</item>
-        <item>Benz</item>
+        <item>Chevrolet</item>
+        <item>Ford</item>
+        <item>Nissan</item>
     </string-array>
 
     <string name="title_activity_maps">Map</string>
@@ -14,5 +15,52 @@
         <item>Formula Honda</item>
         <item>Parkway Honda</item>
     </string-array>
+
+    <string-array name="HondaAddress">
+        <item>940 Ellesmere Rd, Scarborough, ON M1P 2W8</item>
+        <item>2240 Markham Rd, Scarborough, ON M1B 2W4</item>
+        <item>1681 Eglinton Ave E, North York, ON M4A 1J6</item>
+    </string-array>
+
+    <string-array name="Chevrolet">
+        <item>Leggat Chevrolet Buick GMC</item>
+        <item>Roy Foss Thornhill</item>
+        <item>Roy Foss Woodbridge</item>
+    </string-array>
+
+    <string-array name="ChevroletAddress">
+        <item>360 Rexdale Blvd, Etobicoke, ON M9W 1R7</item>
+        <item>7200 Yonge St, Thornhill, ON L4J 1V8</item>
+        <item>2 Auto Park Cir, Woodbridge, ON L4L 8R1</item>
+    </string-array>
+
+    <string-array name="Ford">
+        <item>Yorkdale Ford Lincoln</item>
+        <item>East Court Ford Lincoln</item>
+        <item>Donway Ford</item>
+    </string-array>
+
+    <string-array name="FordAddress">
+        <item>3130 Dufferin St, North York, ON M6A 2S6</item>
+        <item>4700 Sheppard Ave E, Scarborough, ON M1S 3V6</item>
+        <item>1975 Eglinton Ave E, Scarborough, ON M1L 2N1</item>
+    </string-array>
+
+    <string-array name="Nissan">
+        <item>Nissan Downtown Toronto</item>
+        <item>Avenue Nissan</item>
+        <item>Agincourt Nissan</item>
+    </string-array>
+
+    <string-array name="NissanAddress">
+        <item>265 Front St E #1, Toronto, ON M5A 1G1</item>
+        <item>1661 Avenue Rd, North York, ON M5M 3Y2</item>
+        <item>1871 McCowan Rd, Scarborough, ON M1S 4L4</item>
+    </string-array>
+
+
+
+
+
 
 </resources>
