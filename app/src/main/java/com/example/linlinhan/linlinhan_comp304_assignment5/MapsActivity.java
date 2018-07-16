@@ -23,9 +23,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private String _selecctedShowroom;
-    private String _place;
-    private double _latitude = 43.6426f;
-    private double _longitude = -79.3871f;
+    private String _selecctedAddress;
+    private double _latitude ;
+    private double _longitude ;
 
 
     @Override
@@ -39,30 +39,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         SharedPreferences myPref = getSharedPreferences("Asg5SharedPreferences", MODE_PRIVATE);
         _selecctedShowroom = myPref.getString("selectedShowroom","");
-
-        if (_selecctedShowroom.contains("Roadsport Honda")){
-            _place="940 Ellesmere Rd, Scarborough";
-        }
-
-
-
-
+        _selecctedAddress=myPref.getString("selectedAddress","");
 
         final Geocoder coder = new Geocoder(getApplicationContext(), Locale.getDefault());
 
         try{
             List<Address> geocodeResults =
-                    coder.getFromLocationName(_place, 1);
+                    coder.getFromLocationName(_selecctedAddress, 1);
             Iterator<Address> locations = geocodeResults.iterator();
-
                 Address loc = locations.next();
-            while (locations.hasNext()) {
-
-                _latitude = loc.getLatitude();
-                _longitude = loc.getLongitude();
-                // break;
-            }
-
+            _latitude = loc.getLatitude();
+            _longitude = loc.getLongitude();
         }
         catch(IOException e){
             Log.e("GeoAddress", "Failed to get location info", e);

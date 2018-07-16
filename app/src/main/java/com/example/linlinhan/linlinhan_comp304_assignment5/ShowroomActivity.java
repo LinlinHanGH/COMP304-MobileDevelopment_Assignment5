@@ -67,6 +67,8 @@ public class ShowroomActivity extends AppCompatActivity {
                         Intent intent=new Intent(ShowroomActivity.this, MapsActivity.class);
                         prefEditor.putString("selectedShowroom", _showrooms[position]);
                         prefEditor.putString("selectedAddress", _addresses[position]);
+                        prefEditor.commit();
+                        startActivity(intent);
                     }
                 }
         );
