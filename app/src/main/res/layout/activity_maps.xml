@@ -10,12 +10,15 @@
     map:cameraZoom="12"
     map:uiZoomControls="true">
 
+
     <Button
+        android:id="@+id/btnStdMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:text="Demo Button"
-        android:alpha="0.5">
+        android:text="@string/change"
+        style="@style/Button">
     </Button>
+
+
 </fragment>
 

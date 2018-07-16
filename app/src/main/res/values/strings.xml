@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">LinlinHan_COMP304_Assignment5</string>
 
+<!--  button-->
+    <string name="change">Change Map Style</string>
+
     <string-array name="brands">
         <item>Honda</item>
         <item>Chevrolet</item>
