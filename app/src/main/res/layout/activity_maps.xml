@@ -8,4 +8,14 @@
     android:layout_height="match_parent"
     tools:context=".MapsActivity"
     map:cameraZoom="12"
-    map:uiZoomControls="true"/>
+    map:uiZoomControls="true">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="Demo Button"
+        android:alpha="0.5">
+    </Button>
+</fragment>
+
