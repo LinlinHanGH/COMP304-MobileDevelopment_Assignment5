@@ -13,6 +13,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -82,17 +83,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // custom marker
         MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(selectedPlace).title(_selecctedBrand);
+        markerOptions.position(selectedPlace).title(_selecctedShowroom);
+        markerOptions.snippet(_selecctedAddress);
+        //markerOptions.snippet(_selecctedAddress);
 
-        InfoWindowData info = new InfoWindowData();
-        info.setImage("honda");
+        //InfoWindowData info = new InfoWindowData();
+        //info.setImage("honda");
 
         CustomInfoWindowGoogleMap customInfoWindow = new CustomInfoWindowGoogleMap(this);
         mMap.setInfoWindowAdapter(customInfoWindow);
 
         Marker m = mMap.addMarker(markerOptions);
-        m.setTag(info);
-        m.showInfoWindow();
+        //m.setTag(info);
+        //m.showInfoWindow();
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(selectedPlace));
 

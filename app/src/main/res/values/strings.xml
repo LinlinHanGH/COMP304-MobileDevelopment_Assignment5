@@ -25,6 +25,12 @@
         <item>1681 Eglinton Ave E, North York, ON M4A 1J6</item>
     </string-array>
 
+    <string-array name="HondaPhones">
+        <item>(416) 291-9501</item>
+        <item>(416) 281-8803</item>
+        <item>(416) 291-3401</item>
+    </string-array>
+
     <string-array name="Chevrolet">
         <item>Leggat Chevrolet Buick GMC</item>
         <item>Roy Foss Thornhill</item>
@@ -35,6 +41,12 @@
         <item>360 Rexdale Blvd, Etobicoke, ON M9W 1R7</item>
         <item>7200 Yonge St, Thornhill, ON L4J 1V8</item>
         <item>2 Auto Park Cir, Woodbridge, ON L4L 8R1</item>
+    </string-array>
+
+    <string-array name="ChevroletPhones">
+        <item>(416) 291-5054</item>
+        <item>(416) 291-9312</item>
+        <item>(416) 291-6783</item>
     </string-array>
 
     <string-array name="Ford">
@@ -49,6 +61,12 @@
         <item>1975 Eglinton Ave E, Scarborough, ON M1L 2N1</item>
     </string-array>
 
+    <string-array name="FordPhones">
+        <item>(416) 751-2200</item>
+        <item>(416) 751-3568</item>
+        <item>(416) 751-2758</item>
+    </string-array>
+
     <string-array name="Nissan">
         <item>Nissan Downtown Toronto</item>
         <item>Avenue Nissan</item>
@@ -61,7 +79,11 @@
         <item>1871 McCowan Rd, Scarborough, ON M1S 4L4</item>
     </string-array>
 
-
+    <string-array name="NissanPhones">
+        <item>(416) 291-1188</item>
+        <item>(416) 751-2968</item>
+        <item>(416) 751-2759</item>
+    </string-array>
 
 
 

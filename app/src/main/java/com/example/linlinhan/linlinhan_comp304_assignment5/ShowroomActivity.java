@@ -13,6 +13,7 @@ public class ShowroomActivity extends AppCompatActivity {
     private String _seletedBrand;
     private String[]_showrooms={};
     private String[]_addresses={};
+    private String[]_phones={};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,8 @@ public class ShowroomActivity extends AppCompatActivity {
     private void initValues(){
         SharedPreferences myPref = getSharedPreferences("Asg5SharedPreferences", MODE_PRIVATE);
         _seletedBrand = myPref.getString("selectedBrand","");
+        int selectedShowroom=R.array.Honda;
+        int selectedAddress;
 
         switch (_seletedBrand){
             case "Honda":
@@ -67,6 +70,7 @@ public class ShowroomActivity extends AppCompatActivity {
                         Intent intent=new Intent(ShowroomActivity.this, MapsActivity.class);
                         prefEditor.putString("selectedShowroom", _showrooms[position]);
                         prefEditor.putString("selectedAddress", _addresses[position]);
+                        prefEditor.putString("salesNum", _addresses[position]);
                         prefEditor.commit();
                         startActivity(intent);
                     }

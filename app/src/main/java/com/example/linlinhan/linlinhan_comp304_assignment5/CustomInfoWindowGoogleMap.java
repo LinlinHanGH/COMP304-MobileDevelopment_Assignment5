@@ -27,15 +27,19 @@ public class CustomInfoWindowGoogleMap implements GoogleMap.InfoWindowAdapter {
         View view = ((Activity)context).getLayoutInflater()
                 .inflate(R.layout.map_custom_infowindow, null);
 
-        TextView txvBrand = view.findViewById(R.id.txvBrand);
-        ImageView img = view.findViewById(R.id.imgvLogo);
+        //TextView txvBrand = view.findViewById(R.id.txvBrand);
+        TextView txvShowroom=view.findViewById(R.id.txvShowroom);
+        TextView txvAddress=view.findViewById(R.id.txvAddress);
+        ImageView imgvLogo = view.findViewById(R.id.imgvLogo);
 
-        InfoWindowData infoWindowData = (InfoWindowData) marker.getTag();
+        txvShowroom.setText(marker.getTitle());
+        //txvShowroom.setText(marker.getSnippet());
+        txvAddress.setText(marker.getSnippet());
 
-        txvBrand.setText(marker.getTitle());
-        int imageId = context.getResources().getIdentifier(infoWindowData.getImage().toLowerCase(),
+
+        int imageId = context.getResources().getIdentifier("honda",
                 "drawable", context.getPackageName());
-        img.setImageResource(imageId);
+        imgvLogo.setImageResource(imageId);
 
 
         return view;
