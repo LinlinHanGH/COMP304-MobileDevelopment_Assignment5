@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -79,7 +80,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng selectedPlace = new LatLng(_latitude, _longitude);
         mMap.addMarker(new MarkerOptions().position(selectedPlace).title("Marker of Honda"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(selectedPlace));
-        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+
 
     }// end of onMapReady
 
@@ -95,5 +96,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         return super.onKeyDown(keyCode,event);
 
+    }// end of onKeyDown
+
+    public void ChangeType(View view){
+        if (mMap.getMapType()==GoogleMap.MAP_TYPE_NORMAL){
+            mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        }
+        else if (mMap.getMapType()==GoogleMap.MAP_TYPE_SATELLITE){
+            mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        }
     }
 }
