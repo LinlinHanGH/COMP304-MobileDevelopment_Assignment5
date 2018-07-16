@@ -26,9 +26,9 @@ import java.util.Locale;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private String _selecctedBrand;
     private String _selecctedShowroom;
     private String _selecctedAddress;
+    private String _phone;
     private double _latitude ;
     private double _longitude ;
 
@@ -43,9 +43,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         SharedPreferences myPref = getSharedPreferences("Asg5SharedPreferences", MODE_PRIVATE);
-        _selecctedBrand=myPref.getString("selectedBrand","");
         _selecctedShowroom = myPref.getString("selectedShowroom","");
         _selecctedAddress=myPref.getString("selectedAddress","");
+        _phone=myPref.getString("salesNum","");
 
         final Geocoder coder = new Geocoder(getApplicationContext(), Locale.getDefault());
 
@@ -84,18 +84,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // custom marker
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(selectedPlace).title(_selecctedShowroom);
-        markerOptions.snippet(_selecctedAddress);
-        //markerOptions.snippet(_selecctedAddress);
-
-        //InfoWindowData info = new InfoWindowData();
-        //info.setImage("honda");
+        markerOptions.snippet("Address: "+_selecctedAddress+ System.getProperty("line.separator") +"Sales Number: "+_phone);
 
         CustomInfoWindowGoogleMap customInfoWindow = new CustomInfoWindowGoogleMap(this);
         mMap.setInfoWindowAdapter(customInfoWindow);
 
         Marker m = mMap.addMarker(markerOptions);
-        //m.setTag(info);
-        //m.showInfoWindow();
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(selectedPlace));
 

@@ -28,29 +28,38 @@ public class ShowroomActivity extends AppCompatActivity {
     private void initValues(){
         SharedPreferences myPref = getSharedPreferences("Asg5SharedPreferences", MODE_PRIVATE);
         _seletedBrand = myPref.getString("selectedBrand","");
-        int selectedShowroom=R.array.Honda;
-        int selectedAddress;
+        int arrayIntShowroom=0;
+        int arrayIntAddress=0;
+        int arrayIntPhone=0;
 
         switch (_seletedBrand){
             case "Honda":
-                _showrooms=getResources().getStringArray(R.array.Honda);
-                _addresses=getResources().getStringArray(R.array.HondaAddress);
+                arrayIntShowroom=R.array.Honda;
+                arrayIntAddress=R.array.HondaAddress;
+                arrayIntPhone=R.array.HondaPhones;
                 break;
             case "Chevrolet":
-                _showrooms=getResources().getStringArray(R.array.Chevrolet);
-                _addresses=getResources().getStringArray(R.array.ChevroletAddress);
+                arrayIntShowroom=R.array.Chevrolet;
+                arrayIntAddress=R.array.ChevroletAddress;
+                arrayIntPhone=R.array.ChevroletPhones;
                 break;
             case "Ford":
-                _showrooms=getResources().getStringArray(R.array.Ford);
-                _addresses=getResources().getStringArray(R.array.FordAddress);
+                arrayIntShowroom=R.array.Ford;
+                arrayIntAddress=R.array.FordAddress;
+                arrayIntPhone=R.array.FordPhones;
                 break;
             case "Nissan":
-                _showrooms=getResources().getStringArray(R.array.Nissan);
-                _addresses=getResources().getStringArray(R.array.NissanAddress);
+                arrayIntShowroom=R.array.Nissan;
+                arrayIntAddress=R.array.NissanAddress;
+                arrayIntPhone=R.array.NissanPhones;
                 break;
             default:
                 break;
         }
+
+        _showrooms=getResources().getStringArray(arrayIntShowroom);
+        _addresses=getResources().getStringArray(arrayIntAddress);
+        _phones=getResources().getStringArray(arrayIntPhone);
 
     }
 
@@ -70,7 +79,7 @@ public class ShowroomActivity extends AppCompatActivity {
                         Intent intent=new Intent(ShowroomActivity.this, MapsActivity.class);
                         prefEditor.putString("selectedShowroom", _showrooms[position]);
                         prefEditor.putString("selectedAddress", _addresses[position]);
-                        prefEditor.putString("salesNum", _addresses[position]);
+                        prefEditor.putString("salesNum", _phones[position]);
                         prefEditor.commit();
                         startActivity(intent);
                     }
