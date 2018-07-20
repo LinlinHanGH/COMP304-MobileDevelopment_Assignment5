@@ -19,7 +19,7 @@
         android:layout_marginEnd="5dip">
 
         <ImageView
-            android:id="@+id/brand_image"
+            android:id="@+id/img"
             android:layout_width="50dip"
             android:layout_height="50dip" />
 
@@ -27,7 +27,7 @@
 
     <!-- Brand name -->
     <TextView
-        android:id="@+id/txv_orderId_cname"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
