@@ -32,6 +32,8 @@
         android:layout_height="wrap_content"
 
         android:layout_toRightOf="@+id/thumbnail"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
         android:text="Brand"
         android:textColor="#040404"
         android:typeface="sans"

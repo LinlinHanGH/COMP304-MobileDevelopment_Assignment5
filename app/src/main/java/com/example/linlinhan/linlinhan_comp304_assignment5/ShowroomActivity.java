@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ShowroomActivity extends AppCompatActivity {
     private String _seletedBrand;
@@ -64,11 +70,13 @@ public class ShowroomActivity extends AppCompatActivity {
     }
 
     private void initBrandsListView(){
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, getData(), R.layout.list_brand, new String[] { "title",  "img" }, new int[] { R.id.title, R.id.img });
+
         //get brands from string array
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,
-                _showrooms);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,
+               // _showrooms);
         ListView lstvBrand = findViewById(R.id.lstvShowroom);
-        lstvBrand.setAdapter(adapter);
+        lstvBrand.setAdapter(simpleAdapter);
         lstvBrand.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
@@ -85,5 +93,21 @@ public class ShowroomActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    private List<Map<String, Object>> getData() {
+        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+        Map<String, Object> map;
+        int imageId;
+        for (int i=0;i<_showrooms.length;i++){
+            map = new HashMap<String, Object>();
+            map.put("title", _showrooms[i]);
+            imageId= getResources().getIdentifier(_seletedBrand.toLowerCase(),
+                    "drawable", getPackageName());
+            map.put("img", imageId);
+            list.add(map);
+        }
+
+        return list;
     }
 }

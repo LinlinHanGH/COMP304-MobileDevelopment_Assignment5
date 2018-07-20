@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">LinlinHan_COMP304_Assignment5</string>
+<!--  title-->
+    <string name="selectBrand">Please select the brand!</string>
+    <string name="selectShowroom">Please select the showroom!</string>
 
 <!--  button-->
     <string name="change">Change Map Type</string>
