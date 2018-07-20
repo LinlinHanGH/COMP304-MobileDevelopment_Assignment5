@@ -16,26 +16,23 @@ import java.util.List;
 import java.util.Map;
 
 public class MenuActivity extends AppCompatActivity {
+    private String[]_brands={};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
+      
         //initialise listview
         initBrandsListView();
 
     }// end of cnCreate
 
     private void initBrandsListView(){
+        _brands=getResources().getStringArray(R.array.brands);
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, getData(), R.layout.list_brand, new String[] { "title",  "img" }, new int[] { R.id.title, R.id.img });
 
-
-
-        final String[]brands=getResources().getStringArray(R.array.brands);
-        //get brands from string array
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,
-                brands);
         ListView lstvBrand = findViewById(R.id.lstvBrand);
         lstvBrand.setAdapter(simpleAdapter);
         lstvBrand.setOnItemClickListener(
@@ -46,7 +43,7 @@ public class MenuActivity extends AppCompatActivity {
                                 getSharedPreferences("Asg5SharedPreferences", 0);
                         SharedPreferences.Editor prefEditor = myPreference.edit();
                         Intent intent=new Intent(MenuActivity.this, ShowroomActivity.class);
-                        prefEditor.putString("selectedBrand", brands[position]);
+                        prefEditor.putString("selectedBrand", _brands[position]);
                         prefEditor.commit();
                         startActivity(intent);
                     }
@@ -55,27 +52,18 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private List<Map<String, Object>> getData() {
-        //map.put(参数名字,参数值)
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("title", "Honda");
-        map.put("img", R.drawable.honda);
-        list.add(map);
+        Map<String, Object> map;
+        int imageId;
+        for (int i=0;i<_brands.length;i++){
+            map = new HashMap<String, Object>();
+            map.put("title", _brands[i]);
+            imageId= getResources().getIdentifier(_brands[i].toLowerCase(),
+                    "drawable", getPackageName());
+            map.put("img", imageId);
+            list.add(map);
+        }
 
-        map = new HashMap<String, Object>();
-        map.put("title", "Chevrolet");
-        map.put("img", R.drawable.chevrolet);
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("title", "Ford");
-        map.put("img", R.drawable.ford);
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("title", "Nissan");
-        map.put("img", R.drawable.nissan);
-        list.add(map);
         return list;
     }
 
