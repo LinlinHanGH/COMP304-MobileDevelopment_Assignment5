@@ -2,12 +2,15 @@ package com.example.linlinhan.linlinhan_comp304_assignment5;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class CustomInfoWindowGoogleMap implements GoogleMap.InfoWindowAdapter {
 
@@ -36,9 +39,13 @@ public class CustomInfoWindowGoogleMap implements GoogleMap.InfoWindowAdapter {
         //txvShowroom.setText(marker.getSnippet());
         txvAddress.setText(marker.getSnippet());
 
-
-        int imageId = context.getResources().getIdentifier("honda",
+        SharedPreferences myPref =context.getSharedPreferences("Asg5SharedPreferences", MODE_PRIVATE);
+        String selectedBrand = myPref.getString("selectedBrand","");
+        int imageId= context.getResources().getIdentifier(selectedBrand.toLowerCase(),
                 "drawable", context.getPackageName());
+
+
+
         imgvLogo.setImageResource(imageId);
 
 

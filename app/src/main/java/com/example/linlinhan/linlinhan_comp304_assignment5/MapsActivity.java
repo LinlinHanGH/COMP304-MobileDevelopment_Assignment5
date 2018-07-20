@@ -87,6 +87,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         markerOptions.snippet("Address: "+_selecctedAddress+ System.getProperty("line.separator") +"Sales Number: "+_phone);
 
         CustomInfoWindowGoogleMap customInfoWindow = new CustomInfoWindowGoogleMap(this);
+
         mMap.setInfoWindowAdapter(customInfoWindow);
 
         Marker m = mMap.addMarker(markerOptions);
